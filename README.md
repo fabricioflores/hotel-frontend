@@ -1,13 +1,16 @@
 # hotel
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.16.0.
+## Requirements
 
-## Build & development
+- nodejs
 
-Run `grunt` for building and `grunt serve` for preview.
+## Getting start
+
+- npm install -g grunt grunt-cli bower
+- cd hotel-frontend
+- npm install && bower install
+- server starts with `grunt serve`
 
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
-# hotel-frontend

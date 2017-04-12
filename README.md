@@ -1,5 +1,7 @@
 # hotel
 
+[![CircleCI](https://circleci.com/gh/fabricioflores/hotel-frontend.svg?style=svg)](https://circleci.com/gh/fabricioflores/hotel-frontend)
+
 ## Requirements
 
 - nodejs

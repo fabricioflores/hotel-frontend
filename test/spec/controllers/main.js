@@ -1,23 +1,53 @@
-'use strict';
+(function () {
+  'use strict';
+  /*jshint camelcase:false */
+  describe('MainController', function () {
+    var ctrl,
+      $controller,
+      dependencies,
+      $scope,
+      SearchService;
 
-describe('Controller: MainCtrl', function () {
+    beforeEach(module('hotelApp.controllers'));
+    beforeEach(module('hotelApp.services', function ($provide) {
+      $provide.factory('SearchService', function () {
+        return {
+          searchHotels: function(){
+            return [];
+          }
+        };
+      });
+    }));
 
-  // load the controller's module
-  beforeEach(module('hotelApp'));
+    beforeEach(inject(function (_$controller_, _$rootScope_,
+      _SearchService_) {
+      $scope = _$rootScope_.$new();
+      $controller = _$controller_;
+      SearchService = _SearchService_;
+      dependencies = {
+        SearchService: SearchService
+      };
 
-  var MainCtrl,
-    scope;
+      ctrl = $controller('MainCtrl', dependencies);
+    }));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-      // place here mocked dependencies
+
+    describe('init controller', function () {
+      it('Should exist controller', function () {
+        expect(ctrl).toBeTruthy();
+      });
     });
-  }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+    describe('functions', function () {
+      it('Should call searchHotels of SearchService', function () {
+        spyOn(SearchService, 'searchHotels');
+        ctrl.address = {
+          components: {}
+        }
+        ctrl.search();
+        expect(SearchService.searchHotels).toHaveBeenCalled();
+      });
+    });
+
   });
-});
+})();

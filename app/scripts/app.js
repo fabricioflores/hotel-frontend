@@ -12,7 +12,10 @@ angular
   .module('hotelApp', [
     'ngMessages',
     'ui.router',
-    'ngTouch'
+    'ngTouch',
+    'vsGoogleAutocomplete',
+    'hotelApp.services',
+    'hotelApp.controllers'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -20,13 +23,13 @@ angular
         url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'vmMain'
       })
       .state('about', {
         url: '/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controllerAs: 'vmAbout'
       })
       .state('room', {
         url: '/room/:roomId',
@@ -37,3 +40,6 @@ angular
 
       $urlRouterProvider.otherwise('/');
   });
+
+angular.module('hotelApp.services', []);
+angular.module('hotelApp.controllers', []);

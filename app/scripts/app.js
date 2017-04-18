@@ -27,6 +27,12 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .state('room', {
+        url: '/room/:roomId',
+        templateUrl: 'views/room.html',
+        controller: 'RoomCtrl',
+        controllerAs: 'room'
       });
 
       $urlRouterProvider.otherwise('/');

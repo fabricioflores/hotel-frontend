@@ -1,17 +1,20 @@
-'use strict';
+(function() {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name hotelApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the hotelApp
- */
-angular.module('hotelApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  angular
+      .module('hotelApp.controllers')
+      .controller('MainCtrl', MainCtrl);
+
+  MainCtrl.$inject = ['SearchService'];
+
+  function MainCtrl(SearchService) {
+      var vmMain = this;
+      vmMain.search = search;
+
+      function search(){
+        vmMain.results = SearchService.searchHotels(vmMain.address.components.city,
+                                                    vmMain.address.components.postCode);
+      }
+
+  }
+})();

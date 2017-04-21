@@ -8,10 +8,12 @@
  * Controller of the hotelApp
  */
 angular.module('hotelApp')
-  .controller('RoomCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('RoomCtrl', function ($scope, $http) {
+	 $http({
+      method: 'GET',
+      url: 'http://localhost:8080/v0/room/1',
+      type:'json'
+    }).then(function successCallback(response) {
+        $scope.greeting = response.data;
+      })
   });

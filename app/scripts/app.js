@@ -17,7 +17,9 @@ angular
     'hotelApp.services',
     'hotelApp.controllers'
   ])
+  
   .config(function ($stateProvider, $urlRouterProvider) {
+
     $stateProvider
       .state('main', {
         url: '/',

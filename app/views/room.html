@@ -1,22 +1,15 @@
-<p>Nombre del hotel</p>
-<div class="row">
+<p><h5 class="text-success"> <strong>DETALLE DE LA HABITACIÓN</strong></h5></p>
+<div class="row" >
 	<div class="col-md-4">
-		<img src="images/habitacion1.jpg" class="img-thumbnail">
+		<img src="{{greeting.image}}" class="img-thumbnail">
 	</div>
 	<div class="col-md-8">
-		<div class="row">
-			<div class="col-md-12">Tipo de cama: 1 King o 2 Twin</div>
-			<div class="col-md-12">Ocupación: 3 personas</div>
-			<div class="col-md-12">Tamaño: 36 m²</div>
-			<div class="col-md-12"><strong>Comodidad</strong></div>
-			<div class="col-md-12">Cafetera Nespresso</div>
-			<div class="col-md-12">Complimentary Gym Access</div>
-			<div class="col-md-12"><strong>Conectividad</strong></div>
-			<div class="col-md-12">Wifi gratis</div>
+		<div class="row" >
+			<div class="col-md-12"><span class="text-info">Hotel:</span> {{greeting.hotel}}</div>
+			<div class="col-md-12"><span class="text-info">Tipo Habitación:</span> {{greeting.type}}</div>
+			<div class="col-md-12"><span class="text-info">Precio:</span> {{greeting.price}} €</div>
 			<div class="col-md-12"><strong>Entretenimiento</strong></div>
-			<div class="col-md-12">Canales internacionales</div>
-			<div class="col-md-12">Televisión de pantalla plana tamaño superior</div>
-			<div class="col-md-12">Televisión vía satélite</div>
+			<div class="col-md-12">{{greeting.extraServices}}</div>
 		</div>
 	</div>
 	

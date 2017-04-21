@@ -14,7 +14,9 @@ angular
     'ui.router',
     'ngTouch'
   ])
+  
   .config(function ($stateProvider, $urlRouterProvider) {
+
     $stateProvider
       .state('main', {
         url: '/',

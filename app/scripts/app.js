@@ -15,7 +15,8 @@ angular
     'ngTouch',
     'vsGoogleAutocomplete',
     'hotelApp.services',
-    'hotelApp.controllers'
+    'hotelApp.controllers',
+    'ngBootbox'
   ])
   
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -38,8 +39,13 @@ angular
         templateUrl: 'views/room.html',
         controller: 'RoomCtrl',
         controllerAs: 'room'
+      })
+       .state('reservation', {
+        url: '/room/reservation/datos',
+        templateUrl: 'views/reservation.html',
+        controller: 'ReservationCtrl',
+        controllerAs: 'reservation'
       });
-
       $urlRouterProvider.otherwise('/');
   });
 

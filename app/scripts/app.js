@@ -18,7 +18,7 @@ angular
     'hotelApp.controllers',
     'ngBootbox'
   ])
-  
+
   .config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
@@ -39,6 +39,27 @@ angular
         templateUrl: 'views/room.html',
         controller: 'RoomCtrl',
         controllerAs: 'room'
+      })
+      .state('search', {
+        url: '/search?city&zipcode',
+        params: {
+          city: null,
+          zipcode: null
+        },
+        templateUrl: 'views/search.html',
+        controller: 'SearchController',
+        controllerAs: 'vmSearch',
+        resolve: {
+          rooms: function($stateParams, SearchService, $state){
+            return SearchService.searchRooms($stateParams.city,
+                                             $stateParams.zipcode)
+           .then(function success(response){
+             return response;
+           }, function error(){
+             $state.go('main');
+          });
+          }
+        }
       })
        .state('reservation', {
         url: '/room/reservation/datos',

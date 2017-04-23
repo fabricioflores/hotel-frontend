@@ -1,0 +1,31 @@
+<h2>Resultados en <span>{{vmSearch.city}}</span> <span>{{vmSearch.zipcode}}</span></h2>
+
+<div class="row">
+    <div class="result-card col-md-12" ng-repeat="hotel in vmSearch.rooms">
+      <div class="hotel col-md-12">
+        <div class="col-md-12">
+          <span class="hotel-name">{{hotel.name}}</span>
+          <span class="hotel-address">{{hotel.addressLine}}</span>
+        </div>
+        <div class="col-md-12">
+          <div>Habitaciones disponibles:</div>
+          <a ui-sref="room({roomId: room.id})" class="col-md-4 rooms-container {{room.id}}" ng-repeat="room in hotel.rooms">
+            <div class="room-container">
+              <div class="col-md-12">
+                <img src="images/habitacion1.jpg" class="img-thumbnail">
+              </div>
+              <div class="room-description">
+                {{room.roomType}} - € {{room.price / 100}}
+              </div>
+              <div class="room-beds">
+
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div ng-if="vmSearch.rooms.length === 0">
+        No hay hoteles en la zona que buscas
+    </div>
+</div>

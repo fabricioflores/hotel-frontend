@@ -1,0 +1,27 @@
+.result-card{
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px 2px #eee;
+}
+
+.hotel-name {
+  font-size: 26px;
+  text-decoration: bold;
+}
+
+.hotel-address {
+  color: #999;
+}
+
+.rooms-container{
+  margin-top: 10px;
+}
+
+.room-container {
+  margin-bottom: 15px;
+  margin-right: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px 2px #eee;
+}

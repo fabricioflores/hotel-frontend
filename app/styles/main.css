@@ -87,3 +87,13 @@ body {
     border-bottom: 0;
   }
 }
+
+.navbar-default .navbar-brand {
+  color: #eee;
+}
+
+.search-container {
+  background-color: #b3b3cc;
+  padding-bottom: 200px;
+  background-image: url('../images/searchbackground.jpg');
+}

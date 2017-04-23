@@ -6,26 +6,29 @@
       $controller,
       dependencies,
       $scope,
-      SearchService;
+      $state;
 
     beforeEach(module('hotelApp.controllers'));
-    beforeEach(module('hotelApp.services', function ($provide) {
-      $provide.factory('SearchService', function () {
+    beforeEach(angular.mock.module(function ($provide) {
+      $provide.provider('$state', function () {
         return {
-          searchHotels: function(){
-            return [];
+          $get: function () {
+            return {
+              go: function(){
+                return null;
+              }
+            };
           }
         };
       });
     }));
 
-    beforeEach(inject(function (_$controller_, _$rootScope_,
-      _SearchService_) {
+    beforeEach(inject(function (_$controller_, _$rootScope_, _$state_) {
       $scope = _$rootScope_.$new();
       $controller = _$controller_;
-      SearchService = _SearchService_;
+      $state = _$state_;
       dependencies = {
-        SearchService: SearchService
+        $state: $state
       };
 
       ctrl = $controller('MainCtrl', dependencies);
@@ -39,13 +42,13 @@
     });
 
     describe('functions', function () {
-      it('Should call searchHotels of SearchService', function () {
-        spyOn(SearchService, 'searchHotels');
+      it('Should change state when search', function () {
+        spyOn($state, 'go');
         ctrl.address = {
           components: {}
         }
         ctrl.search();
-        expect(SearchService.searchHotels).toHaveBeenCalled();
+        expect($state.go).toHaveBeenCalled();
       });
     });
 

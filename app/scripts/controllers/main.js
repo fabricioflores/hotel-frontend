@@ -5,15 +5,17 @@
       .module('hotelApp.controllers')
       .controller('MainCtrl', MainCtrl);
 
-  MainCtrl.$inject = ['SearchService'];
+  MainCtrl.$inject = ['$state'];
 
-  function MainCtrl(SearchService) {
+  function MainCtrl($state) {
       var vmMain = this;
       vmMain.search = search;
 
       function search(){
-        vmMain.results = SearchService.searchHotels(vmMain.address.components.city,
-                                                    vmMain.address.components.postCode);
+        $state.go('search',{
+          city:vmMain.address.components.city,
+          zipcode:vmMain.address.components.postCode
+        });
       }
 
   }

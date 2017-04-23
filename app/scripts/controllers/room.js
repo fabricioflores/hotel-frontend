@@ -15,5 +15,6 @@ angular.module('hotelApp')
       type:'json'
     }).then(function successCallback(response) {
         $scope.greeting = response.data;
+        debugger
       });
   });

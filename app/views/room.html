@@ -1,20 +1,30 @@
-<p><h5 class="text-success"> <strong>DETALLE DE LA HABITACIÓN</strong></h5></p>
+<p><h5 class="text-success"> <strong>Room Specification</strong></h5></p>
 <div class="row" >
 	<div class="col-md-4">
-		<img src="{{greeting.image}}" class="img-thumbnail">
+		<img src="images/habitacion1.jpg" class="img-thumbnail">
 	</div>
 	<div class="col-md-8">
 		<div class="row" >
-			<div class="col-md-12"><span class="text-info">Hotel:</span> {{greeting.hotel}}</div>
-			<div class="col-md-12"><span class="text-info">Tipo Habitación:</span> {{greeting.type}}</div>
-			<div class="col-md-12"><span class="text-info">Precio:</span> {{greeting.price}} €</div>
-			<div class="col-md-12"><strong>Entretenimiento</strong></div>
-			<div class="col-md-12">{{greeting.extraServices}}</div>
-			<div  class="col-md-12"><span>
+			<div class="col-md-12"><span class="text-info">Hotel:</span> {{greeting.hotelId}}</div>
+			<div class="col-md-12"><span class="text-info">Room type:</span> {{greeting.roomType}}</div>
+			<div class="col-md-12"><span class="text-info">Price:</span> {{greeting.price}} €</div>
+			<div class="col-md-12"><strong>SERVICES</strong></div>
+			<ul>
+				<div class="col-md-12"><li>Bathrooms:{{greeting.bathrooms}}</li></div>
+				<div class="col-md-12"><li>Double bed: {{greeting.doubleBedCount}}</li></div>
+				<div class="col-md-12"><li>Single Bed: {{greeting.singleBedCount}}</li></div>
+				<div class="col-md-12"><li>Queen Bed: {{greeting.queenBedCount}}</li></div>
+				<div class="col-md-12"><li>King Bed: {{greeting.kingBedCount}}</li></div>
+				<div class="col-md-12"><li>AirConditioning: {{greeting.hasAirConditioning}}</li></div>
+				<div class="col-md-12"><li>Heating: {{greeting.hasHeating}}</li></div>
+				<div class="col-md-12"><li>Tv: {{greeting.hasTv}}</li></div>
+				<div class="col-md-12"><li>Wifi: {{greeting.hasWifi}}</li></div>
+			</ul>
+			<div  class="col-md-12" style="padding:7px"><span>
 				<button class="btn btn-success btn-xs" 
 						ng-click="confirmReserva()"  
 						ng-controller="ReservationCtrl"
-						>Reservar
+						>Reservation
 	        	</button></span>
 	        </div>
 		</div>

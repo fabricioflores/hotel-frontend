@@ -9,8 +9,8 @@
 
   /* @ngInject */
   function RoomService() {
-    let room = {};
-    let service = {
+    var room = {};
+    var service = {
       getRoom: getRoom,
       setRoom: setRoom
     };
@@ -21,7 +21,7 @@
       return room;
     }
 
-    function setRoom(newRoom = {}) {
+    function setRoom(newRoom){
       room = newRoom;
     }
   }

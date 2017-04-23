@@ -23,7 +23,7 @@ angular.module('hotelApp')
       $scope.disabled = false;
 
        $scope.saveReservation = function () {
-         const room = RoomService.getRoom();
+         var room = RoomService.getRoom();
          if(isNaN($scope.numberPersons)){
            $scope.errorMsg = "Please write a valid number";
            $scope.disabled = true;
@@ -38,7 +38,7 @@ angular.module('hotelApp')
 
          //TODO : add the confirm data here and then change the response.data.id for the hard coded 1 in confirmationID
 
-         let confirmData = {};
+         var confirmData = {};
 
 
          $http({
@@ -48,7 +48,7 @@ angular.module('hotelApp')
            data: confirmData
          }).then(function successCallback(response) {
 
-           let data = {
+           var data = {
              roomId: room.id,
              numberOfPersons: $scope.numberPersons,
              confirmationId: 1

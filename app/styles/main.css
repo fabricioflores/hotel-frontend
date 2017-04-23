@@ -29,6 +29,12 @@ body {
   line-height: 40px;
   padding-bottom: 19px;
 }
+.text{
+  font-size: 12px;
+}
+.pandding{
+  padding:7px;
+}
 
 /* Custom page footer */
 .footer {

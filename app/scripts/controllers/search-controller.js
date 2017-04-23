@@ -12,6 +12,5 @@
       vmSearch.rooms = rooms;
       vmSearch.city= $stateParams.city;
       vmSearch.zipcode= $stateParams.zipcode;
-
   }
 })();

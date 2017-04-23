@@ -9,11 +9,19 @@
         </div>
         <div class="col-md-12">
           <div>Habitaciones disponibles:</div>
-          <div class="col-md-3 room-container" ng-repeat="room in hotel.rooms">
-            <div class="">
+          <a ui-sref="room({roomId: room.id})" class="col-md-4 rooms-container {{room.id}}" ng-repeat="room in hotel.rooms">
+            <div class="room-container">
+              <div class="col-md-12">
+                <img src="images/habitacion1.jpg" class="img-thumbnail">
+              </div>
+              <div class="room-description">
+                {{room.roomType}} - € {{room.price / 100}}
+              </div>
+              <div class="room-beds">
 
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>

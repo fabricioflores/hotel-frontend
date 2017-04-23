@@ -86,6 +86,36 @@ angular
                         doubleBedCount: 1,
                         queenBedCount: 0,
                         kingBedCount: 0
+                    },
+                    {
+                        id: 2,
+                        hotelId: 1,
+                        roomType: 'Double',
+                        price: 234234,
+                        singleBedCount: 0,
+                        doubleBedCount: 1,
+                        queenBedCount: 0,
+                        kingBedCount: 0
+                    },
+                    {
+                        id: 2,
+                        hotelId: 1,
+                        roomType: 'Double',
+                        price: 234234,
+                        singleBedCount: 0,
+                        doubleBedCount: 1,
+                        queenBedCount: 0,
+                        kingBedCount: 0
+                    },
+                    {
+                        id: 2,
+                        hotelId: 1,
+                        roomType: 'Double',
+                        price: 234234,
+                        singleBedCount: 0,
+                        doubleBedCount: 1,
+                        queenBedCount: 0,
+                        kingBedCount: 0
                     }
                 ]
             },

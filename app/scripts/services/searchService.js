@@ -5,18 +5,29 @@
       .module('hotelApp.services')
       .factory('SearchService', SearchService);
 
-  SearchService.$inject = [];
+  SearchService.$inject = ['APP', '$http', '$q'];
 
   /* @ngInject */
-  function SearchService() {
+  function SearchService(APP, $http, $q) {
       var service = {
-          searchHotels: searchHotels
+          searchRooms: searchRooms
       };
 
       return service;
 
-      function searchHotels(city, postalCode) {
-        return [];
+      function searchRooms(city, postalCode) {
+        return $http({
+          method: 'GET',
+          url: APP.apiUrl + 'v0/searchRooms',
+          params: {
+            zipcode: postalCode,
+            city: city
+          }
+        }).then(function successCallback(response) {
+          return response;
+        }, function errorCallback(error){
+          return $q.reject(error);
+        });
       }
   }
 })();

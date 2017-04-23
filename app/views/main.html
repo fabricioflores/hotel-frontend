@@ -1,22 +1,27 @@
 <div class="row">
-    <div class="jumbotron" style="background-color: #b3b3cc; padding-bottom: 200px; background-image: url('images/searchbackground.jpg')">
-        <div class="row">
-    <div class="col-md-12">
-      <h1>Buscar Hotel</h1>
-    </div>      
-            <div class="col-md-9" class="center">
-                <h1> <input vs-google-autocomplete ng-model="vmMain.address.name" vs-city="vmMain.address.components.city" vs-post-code="vmMain.address.components.postCode" type="text" name="address" id="address" class="form-control input-group-lg" placeholder="Ingresa dirección, ciudad o código postal"></h1>
-            </div>
-            <div class="col-md-3">
-                <button type="button" name="button" class="btn btn-danger btn-md" ng-click="vmMain.search()" ng-disabled="!vmMain.address.components.city">Buscar</button>
-            </div>
+    <div class="jumbotron search-container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Buscar Hotel</h1>
         </div>
-    </div>
-    <div class="row marketing">
-        <div class="result" ng-repeat="result in vmMain.results">
+        <div class="col-md-9" class="center">
+          <h1><input vs-google-autocomplete ng-model="vmMain.address.name"
+                 vs-city="vmMain.address.components.city"
+                 vs-post-code="vmMain.address.components.postCode"
+                 type="text"
+                 name="address"
+                 id="address"
+                 class="form-control input-group-lg"
+                 placeholder="Ingresa dirección, ciudad o código postal">
+          </h1>
         </div>
-        <div ng-if="vmMain.results.length === 0">
-            No hay hoteles en la zona que buscas
+        <div class="col-md-3">
+          <button type="button"
+                  name="button"
+                  class="btn btn-danger btn-md"
+                  ng-click="vmMain.search()"
+                  ng-disabled="!vmMain.address.components.city">Buscar</button>
         </div>
+      </div>
     </div>
 </div>

@@ -8,7 +8,8 @@
         <div class="row">
             <div class="col-md-12"><span class="text-info">Hotel:</span> {{greeting.hotelId}}</div>
             <div class="col-md-12"><span class="text-info">Room type:</span> {{greeting.roomType}}</div>
-            <div class="col-md-12"><span class="text-info">Price:</span> {{greeting.price}} €</div>
+            <div class="col-md-12"><span class="text-info">Price:</span> {{greeting.price | currency: '€'}} </div>
+            <div class="col-md-12"><span class="text-info">Max.Occupation:</span> {{greeting.maxPersons}}</div>
             <div class="col-md-12"><strong>SERVICES</strong></div>
             <ul>
                 <div class="col-md-12">
@@ -41,8 +42,8 @@
             </ul>
             <div class="col-md-12 pandding">
                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Reservation</button>
-                <!--  <span><button class="btn btn-success btn-xs" 
-						ng-click="confirmReserva()"  
+                <!--  <span><button class="btn btn-success btn-xs"
+						ng-click="confirmReserva()"
 						ng-controller="ReservationCtrl"
 						>Reservation
 	        	</button></span>-->
@@ -57,28 +58,36 @@
                 <div class="modal-content" ng-controller="ReservationCtrl">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Confirmar reserva</h4>
+                        <h4 class="modal-title">Reservation Confirm:</h4>
                     </div>
                     <div class="modal-body">
+                      <div class="row">
                         <div class="col-md-12 text">
-                            <strong>Account Name:</strong> {{cuenta.accountName}}
+                          <strong>Account Name:</strong> {{cuenta.accountName}}
                         </div>
                         <div class="col-md-12 text">
-                        	<strong>Account Number:</strong> {{cuenta.accountNumber}}
+                          <strong>Account Number:</strong> {{cuenta.accountNumber}}
                         </div>
                         <div class="col-md-12 text">
-                        	<strong>Concept:</strong> {{cuenta.concept}}
+                          <strong>Concept:</strong> {{cuenta.concept}}
                         </div>
                         <div class="col-md-12 text">
-                            <strong>Transfer code: </strong>
-                            <input type="text" placeholder="código de transferencia">
+                          <strong>Transfer code: </strong>
+                          <input type="text" ng-model="transferCode" placeholder="transfer code">
                         </div>
+                        <div class="col-md-12 text">
+                          <strong>Number of persons in the room: </strong>
+                          <input type="text" ng-model="numberPersons" placeholder="number of people">
+                        </div>
+                      </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" 
-                        		class="btn btn-success" 
-                        		data-dismiss="modal" 
-                        		ui-sref="reservation">Confirmar
+                      <p class="text-danger text-center" ng-if="disabled">{{errorMsg}}</p>
+                      <button type="button"
+                        		class="btn btn-success"
+                        		data-dismiss="modal"
+                            ng-disabled="disabled"
+                        		ng-click="saveReservation()">Confirm
                         </button>
                     </div>
                 </div>

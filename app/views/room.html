@@ -1,33 +1,89 @@
-<p><h5 class="text-success"> <strong>Room Specification</strong></h5></p>
-<div class="row" >
-	<div class="col-md-4">
-		<img src="images/habitacion1.jpg" class="img-thumbnail">
-	</div>
-	<div class="col-md-8">
-		<div class="row" >
-			<div class="col-md-12"><span class="text-info">Hotel:</span> {{greeting.hotelId}}</div>
-			<div class="col-md-12"><span class="text-info">Room type:</span> {{greeting.roomType}}</div>
-			<div class="col-md-12"><span class="text-info">Price:</span> {{greeting.price}} €</div>
-			<div class="col-md-12"><strong>SERVICES</strong></div>
-			<ul>
-				<div class="col-md-12"><li>Bathrooms:{{greeting.bathrooms}}</li></div>
-				<div class="col-md-12"><li>Double bed: {{greeting.doubleBedCount}}</li></div>
-				<div class="col-md-12"><li>Single Bed: {{greeting.singleBedCount}}</li></div>
-				<div class="col-md-12"><li>Queen Bed: {{greeting.queenBedCount}}</li></div>
-				<div class="col-md-12"><li>King Bed: {{greeting.kingBedCount}}</li></div>
-				<div class="col-md-12"><li>AirConditioning: {{greeting.hasAirConditioning}}</li></div>
-				<div class="col-md-12"><li>Heating: {{greeting.hasHeating}}</li></div>
-				<div class="col-md-12"><li>Tv: {{greeting.hasTv}}</li></div>
-				<div class="col-md-12"><li>Wifi: {{greeting.hasWifi}}</li></div>
-			</ul>
-			<div  class="col-md-12" style="padding:7px"><span>
-				<button class="btn btn-success btn-xs" 
+<p>
+    <h5 class="text-success"> <strong>Room Specification</strong></h5></p>
+<div class="row">
+    <div class="col-md-4">
+        <img src="images/habitacion1.jpg" class="img-thumbnail">
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12"><span class="text-info">Hotel:</span> {{greeting.hotelId}}</div>
+            <div class="col-md-12"><span class="text-info">Room type:</span> {{greeting.roomType}}</div>
+            <div class="col-md-12"><span class="text-info">Price:</span> {{greeting.price}} €</div>
+            <div class="col-md-12"><strong>SERVICES</strong></div>
+            <ul>
+                <div class="col-md-12">
+                    <li>Bathrooms:{{greeting.bathrooms}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>Double bed: {{greeting.doubleBedCount}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>Single Bed: {{greeting.singleBedCount}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>Queen Bed: {{greeting.queenBedCount}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>King Bed: {{greeting.kingBedCount}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>AirConditioning: {{greeting.hasAirConditioning}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>Heating: {{greeting.hasHeating}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>Tv: {{greeting.hasTv}}</li>
+                </div>
+                <div class="col-md-12">
+                    <li>Wifi: {{greeting.hasWifi}}</li>
+                </div>
+            </ul>
+            <div class="col-md-12 pandding">
+                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal">Reservation</button>
+                <!--  <span><button class="btn btn-success btn-xs" 
 						ng-click="confirmReserva()"  
 						ng-controller="ReservationCtrl"
 						>Reservation
-	        	</button></span>
-	        </div>
-		</div>
-	</div>
-	
+	        	</button></span>-->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog" >
+                <!-- Modal content-->
+                <div class="modal-content" ng-controller="ReservationCtrl">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirmar reserva</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12 text">
+                            <strong>Account Name:</strong> {{cuenta.accountName}}
+                        </div>
+                        <div class="col-md-12 text">
+                        	<strong>Account Number:</strong> {{cuenta.accountNumber}}
+                        </div>
+                        <div class="col-md-12 text">
+                        	<strong>Concept:</strong> {{cuenta.concept}}
+                        </div>
+                        <div class="col-md-12 text">
+                            <strong>Transfer code: </strong>
+                            <input type="text" placeholder="código de transferencia">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" 
+                        		class="btn btn-success" 
+                        		data-dismiss="modal" 
+                        		ui-sref="reservation">Confirmar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>

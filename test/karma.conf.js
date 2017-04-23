@@ -28,6 +28,8 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/vsGoogleAutocomplete/dist/vs-google-autocomplete.js',
       'bower_components/vsGoogleAutocomplete/dist/vs-autocomplete-validator.js',
+      'bower_components/bootbox/bootbox.js',
+      'bower_components/ngBootbox/dist/ngBootbox.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
@@ -68,7 +70,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_INFO
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {

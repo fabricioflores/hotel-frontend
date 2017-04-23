@@ -10,7 +10,7 @@
 
 angular.module('hotelApp')
     .controller('ReservationCtrl', function($scope, $http, $ngBootbox, $state) {
-        
+
         peticion();
         function peticion() {
             $http({
@@ -22,11 +22,11 @@ angular.module('hotelApp')
             });
         }
         $scope.confirmReserva = function() {
-            $ngBootbox.confirm({ message: "Deseas realizar la reserva?", title: 'Confirmar' })
+            $ngBootbox.confirm({ message: 'Deseas realizar la reserva?', title: 'Confirmar' })
                 .then(function() {
                     $state.go('reservation');
                 }, function() {
-                    
+
                 });
         };
     });

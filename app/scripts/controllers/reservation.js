@@ -9,7 +9,7 @@
  */
 
 angular.module('hotelApp')
-    .controller('ReservationCtrl', function($scope, $http, $ngBootbox, $state, RoomService) {
+    .controller('ReservationCtrl', function($scope, $http, $ngBootbox, $state, RoomService, ReservationService) {
 
         $http({
                 method: 'GET',
@@ -19,6 +19,7 @@ angular.module('hotelApp')
                 $scope.cuenta = response.data;
 
             });
+      $scope.reservationDone =ReservationService.getReservation();
 
       $scope.disabled = false;
 
@@ -63,7 +64,8 @@ angular.module('hotelApp')
           bank: $scope.bank
          };
 
-
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
          $http({
            method: 'POST',
            url: 'http://localhost:8080/v0/confirmPay',
@@ -82,7 +84,7 @@ angular.module('hotelApp')
              type: 'json',
              data: data
            }).then(function successCallback(response) {
-             $scope.reservationDone = response.data;
+             ReservationService.setReservation(response.data);
              $state.go('reservation');
            }).catch(function () {
            });

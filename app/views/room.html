@@ -72,12 +72,19 @@
                           <strong>Concept:</strong> {{cuenta.concept}}
                         </div>
                         <div class="col-md-12 text">
-                          <strong>Transfer code: </strong>
+                          <strong>Bank*: </strong>
+                          <input type="text" ng-model="bank" placeholder="bank">
+                        </div>
+                        <div class="col-md-12 text">
+                          <strong>Transfer code*: </strong>
                           <input type="text" ng-model="transferCode" placeholder="transfer code">
                         </div>
                         <div class="col-md-12 text">
-                          <strong>Number of persons in the room: </strong>
+                          <strong>Number of persons in the room*: </strong>
                           <input type="text" ng-model="numberPersons" placeholder="number of people">
+                        </div>
+                        <div class="col-md-12 text">
+                            <small>The fields with * are required</small>
                         </div>
                       </div>
                     </div>
@@ -85,8 +92,6 @@
                       <p class="text-danger text-center" ng-if="disabled">{{errorMsg}}</p>
                       <button type="button"
                         		class="btn btn-success"
-                        		data-dismiss="modal"
-                            ng-disabled="disabled"
                         		ng-click="saveReservation()">Confirm
                         </button>
                     </div>

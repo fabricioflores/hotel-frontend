@@ -23,13 +23,32 @@ angular.module('hotelApp')
       $scope.disabled = false;
 
        $scope.saveReservation = function () {
-         var room = RoomService.getRoom();
-         if(isNaN($scope.numberPersons)){
-           $scope.errorMsg = "Please write a valid number";
-           $scope.disabled = true;
+         if(!$scope.bank){
+            $scope.errorMsg = 'Please write a Bank';
+            $scope.disabled = true;
+           return;
+
+         }else{
+           $scope.disabled = false;
          }
+         if(!$scope.transferCode){
+            $scope.errorMsg = 'Please write a Confirmation Code';
+            $scope.disabled = true;
+           return;
+
+         }else{
+           $scope.disabled = false;
+         }
+         if(isNaN($scope.numberPersons)){
+           $scope.errorMsg = 'Please write a valid number';
+           $scope.disabled = true;
+           return;
+         }else{
+           $scope.disabled = false;
+         }
+         var room = RoomService.getRoom();
          if($scope.numberPersons > room.maxPersons){
-            $scope.errorMsg = "The number of people can't be higher than the maximum room occupation";
+            $scope.errorMsg = 'The number of people can not be higher than the maximum room occupation';
             $scope.disabled = true;
            return;
          }else{
@@ -38,12 +57,16 @@ angular.module('hotelApp')
 
          //TODO : add the confirm data here and then change the response.data.id for the hard coded 1 in confirmationID
 
-         var confirmData = {};
+         var confirmData = {
+          payType: 'Transfer',
+          confirmationNumber: $scope.transferCode,
+          bank: $scope.bank
+         };
 
 
          $http({
            method: 'POST',
-           url: 'http://localhost:8080/v0/confirm',
+           url: 'http://localhost:8080/v0/confirmPay',
            type: 'json',
            data: confirmData
          }).then(function successCallback(response) {
@@ -51,7 +74,7 @@ angular.module('hotelApp')
            var data = {
              roomId: room.id,
              numberOfPersons: $scope.numberPersons,
-             confirmationId: 1
+             confirmationId: response.data.id
            };
            $http({
              method: 'POST',
@@ -62,8 +85,7 @@ angular.module('hotelApp')
              $scope.reservationDone = response.data;
              $state.go('reservation');
            }).catch(function () {
-             alert('Please try again later.')
            });
          });
-       }
+       };
     });

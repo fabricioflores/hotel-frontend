@@ -30,7 +30,7 @@
       $stateParams = {
         city: 'Alabama',
         zipcode: 666
-      }
+      };
       dependencies = {
         SearchService: SearchService,
         rooms: rooms,

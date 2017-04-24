@@ -46,7 +46,7 @@
         spyOn($state, 'go');
         ctrl.address = {
           components: {}
-        }
+        };
         ctrl.search();
         expect($state.go).toHaveBeenCalled();
       });

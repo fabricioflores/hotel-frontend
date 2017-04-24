@@ -3,9 +3,9 @@
     <div class="col-md-12 bg-info">
         <div class="col-md-4 bg-info"><strong> Details Booking Room</strong></div>
         <div class="col-md-8">
-            <div class="col-md-12">1</div>
-            <div class="col-md-12">1</div>
-            <div class="col-md-12">1</div>
+            <div class="col-md-12 text" ><strong>Number persons:</strong> {{reservationDone.numberOfPersons}} </div>
+            <div class="col-md-12 text"><strong>Code reservation:</strong>{{reservationDone.reservationCode}}</div>
+            <div class="col-md-12 text"><strong>Code room:</strong> {{reservationDone.roomId}}</div>
         </div>
         <div class="col-md-4 "><strong>Data Bank</strong></div>
         <div class="col-md-8">
@@ -13,5 +13,8 @@
             <div class="col-md-12 text"><strong>AccountNumber:</strong>{{cuenta.accountNumber}}</div>
             <div class="col-md-12 text"><strong>Concept:</strong>{{cuenta.concept}}</div>
         </div>
+    </div>
+    <div class="col-md-12 text text-danger">
+       <strong>Note: Check your email, to save the reservation code </strong> 
     </div>
 </div>
